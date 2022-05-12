@@ -11,10 +11,11 @@ typedef struct elemento Elem;
 
 int main(){
 
-	Pilha *pi;
+	Pilha *pi, *p2;
 	int op;
 
 	pi = cria_pilha();
+	p2 = cria_pilha();
 	
 	do{
 		printf("1-inserir:\n");
@@ -23,6 +24,8 @@ int main(){
 		printf("4-consultar:\n");
 		printf("5-liberar:\n");
 		printf("6-tamanho:\n");
+		printf("7-empilhar na outra pilha:\n");
+		printf("8-mostrar outra pilha:\n");
 		scanf("%d", &op);
 		
 		switch(op){
@@ -83,13 +86,28 @@ int main(){
 					printf("pilha vazia!\n");
 				}else{
 					int tamanho = tamanho(pi);
-					printf("tamanho da pilha: %d\n", tamanho);
+					printf("tamanho da pilha: %d\n", tam);
 				}
 			break;
+			case 7:
+				if(pilha_vazia(pi)==1){
+					printf("pilha vazia!\n");
+				}else{
+					struct palavra pal;
+					insere(p2, pal);
+				}
+			break;
+			case 8:
+				if(pilha_vazia(pi)==1){
+					printf("pilha vazia!\n");
+				}else{
+					imprimir(p2);
+				}
+      			break;	
 		}
 		
 		
-	}while(op<=5);
+	}while(op<=8);
 	
 
 	return 0;
